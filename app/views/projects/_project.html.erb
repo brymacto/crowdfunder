@@ -1,0 +1,6 @@
+<%= content_tag_for(:article, project, class: "project") do %>
+  <%= link_to project.name, "/projects/#{project.id}", class: "name" %>
+  <div class="description"><%= project.description %></div>
+  <div class="funding_goal"><%= project.funding_goal %></div>
+  <div class="dates"><%= project.start_date %> - <%= project.end_date %></div>
+<% end %>
