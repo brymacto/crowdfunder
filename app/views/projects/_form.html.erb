@@ -4,12 +4,13 @@
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
 
       <ul>
-      <% @project.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -30,6 +31,17 @@
     <%= f.label :end_date %><br />
     <%= f.date_field :end_date %>
   </div>
+
+  <h4>Add rewards</h4>
+  <div id="rewards">
+    <%= f.fields_for :rewards do |reward_fields| %>
+      <%= render 'reward_fields', f: reward_fields %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add reward', f, :rewards %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
