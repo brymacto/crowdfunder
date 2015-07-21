@@ -43,3 +43,71 @@ DEPRECATION WARNING: `#timestamp` was called without specifying an option for `n
             FROM sqlite_temp_master
             WHERE name='index_users_on_email' AND type='index'
 
+
+
+Started GET "/users" for ::1 at 2015-07-21 14:50:54 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 3256ms (Views: 3212.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/scaffolds.self-03e9a9109effcf154b969123043d62c18bce00b20195c92ee220707a3180b939.css?body=1" for ::1 at 2015-07-21 14:50:57 -0400
+
+
+Started GET "/users/new" for ::1 at 2015-07-21 14:51:09 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (123.1ms)
+  Rendered users/new.html.erb within layouts/application (144.6ms)
+Completed 200 OK in 203ms (Views: 191.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for ::1 at 2015-07-21 14:59:05 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (15.8ms)
+  Rendered users/new.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 69ms (Views: 67.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-07-21 14:59:05 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-07-21 14:59:05 -0400
+
+
+Started GET "/assets/scaffolds.self-03e9a9109effcf154b969123043d62c18bce00b20195c92ee220707a3180b939.css?body=1" for ::1 at 2015-07-21 14:59:05 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-07-21 14:59:05 -0400
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-07-21 14:59:05 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-07-21 14:59:05 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-07-21 14:59:05 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-07-21 14:59:05 -0400
+
+
+Started POST "/users" for ::1 at 2015-07-21 14:59:42 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X0HqMA1up6KkcaZA2oDgl6Lj1PBNOur6nk33Ov/f96vqIY3RAb6vvwsU408H9KSb9LV7Gz8oDin5mp7firdTpw==", "user"=>{"email"=>"john@doe.com", "first_name"=>"John", "last_name"=>"Doe", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'john@doe.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("email", "first_name", "last_name", "salt", "crypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "john@doe.com"], ["first_name", "John"], ["last_name", "Doe"], ["salt", "pTFCvWwwQRwzEv3kH2ys"], ["crypted_password", "$2a$10$XOLLP5TUGaXI4lz4ykA9KeiqtWaJ4pwalvc7tn6gsgdGMwzMPAisC"], ["created_at", "2015-07-21 18:59:42.370704"], ["updated_at", "2015-07-21 18:59:42.370704"]]
+  [1m[35m (29.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 386ms (ActiveRecord: 30.9ms)
+
+
+Started GET "/users/1" for ::1 at 2015-07-21 14:59:42 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 165ms (Views: 48.3ms | ActiveRecord: 0.3ms)
