@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'cocoon'
 gem 'bcrypt', '~> 3.1.7'
 gem 'sorcery'
-gem 'cancancan'
+gem 'cancancan', '~> 1.10'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

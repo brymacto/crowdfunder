@@ -1,6 +1,9 @@
 class ProjectsController < ApplicationController
+  # before_filter :require_admin, only: [:create]
+  # load_and_authorize_resource
+
   def index
-    @projects = Project.all
+    @projects = Project.order(end_date: :desc)
   end
   def show
     @project = Project.find(params[:id])

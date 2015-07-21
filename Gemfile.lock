@@ -171,7 +171,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   best_errors
   byebug
-  cancancan
+  cancancan (~> 1.10)
   cocoon
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
