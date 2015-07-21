@@ -43,5 +43,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'sorcery'
+
+  gem 'cancancan', '~> 1.10'
 end
 
