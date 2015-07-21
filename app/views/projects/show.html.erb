@@ -1,0 +1,31 @@
+<h1>Project Details View</h1>
+
+<div>
+  ID: <%= @project.id %>
+</div>
+<div>
+  Name: <%= @project.name %>
+</div>
+<div>
+  Description: <%= @project.description %>
+</div>
+<div>
+  Funding Goal: <%= @project.funding_goal %>
+</div>
+<div>
+  Start Date: <%= @project.start_date %>
+</div>
+<div>
+  End Date: <%= @project.end_date %>
+</div>
+
+<h3>Project Rewards</h3>
+
+<ul>
+  <% @project.rewards.each do |reward| %>
+  <li><strong>Name:</strong> <%= reward.name %></li>
+  <li><strong>Description:</strong> <%= reward.description %></li>
+  <li><strong>Amount:</strong> <%= reward.amount %></li>
+  <li><strong>Backer Limit:</strong> <%= reward.backer_limit %></li>
+  <% end %>
+</ul>
