@@ -12,10 +12,16 @@
   <strong>Last name:</strong>
   <%= @user.last_name %>
 </p>
+  <strong>Total amount pledged:</strong>
+  $<%= @user.pledges.sum(:amount) %>
+<p>
 
-<% @user.projects.each do |reward| %>
+</p>
 
-<%= end %>
+<h2>Backed projects</h2>
+<% @user.backed_projects.each do |project|  %>
+  <%= render project %>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
