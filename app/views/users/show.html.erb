@@ -13,5 +13,9 @@
   <%= @user.last_name %>
 </p>
 
+<% @user.projects.each do |reward| %>
+
+<%= end %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
