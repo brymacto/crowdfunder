@@ -19,6 +19,10 @@
   End Date: <%= @project.end_date %>
 </div>
 
+<div>
+  <strong>Total amount raised:</strong> <%= @project.amount_raised %>
+</div>
+
 <h3>Project Rewards</h3>
 
 <ul>
@@ -27,5 +31,10 @@
   <li><strong>Description:</strong> <%= reward.description %></li>
   <li><strong>Amount:</strong> <%= reward.amount %></li>
   <li><strong>Backer Limit:</strong> <%= reward.backer_limit %></li>
+  <li>
+   <%= form_for [@project, reward, reward.pledges.build], remote: true do |f| %>
+     <%= f.submit %>
+   <% end %>
+ </li>
   <% end %>
 </ul>
