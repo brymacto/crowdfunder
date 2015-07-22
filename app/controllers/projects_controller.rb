@@ -13,7 +13,8 @@ class ProjectsController < ApplicationController
   end
   def create
     @project = Project.new(project_params)
-
+    @category = Category.find_or_create_by(name: params[:project][:category])
+    @project.category_id = @category.id
     if @project.save
       redirect_to projects_path
     else
