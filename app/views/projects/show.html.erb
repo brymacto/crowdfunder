@@ -18,9 +18,11 @@
 <div>
   End Date: <%= @project.end_date %>
 </div>
-
 <div>
-  <strong>Total amount raised:</strong> <%= @project.amount_raised %>
+  <strong>Total amount raised:</strong> 
+  <span id="amount_raised">
+  <%= @project.amount_raised %>  
+  </span>
 </div>
 
 <h3>Project Rewards</h3>
@@ -38,3 +40,4 @@
  </li>
   <% end %>
 </ul>
+

@@ -3,6 +3,7 @@ class PledgesController < ApplicationController
   before_action :require_login
 
   def create
+    @project = Project.find(params[:project_id])
     @reward = Reward.find(params[:reward_id])
     @pledge = @reward.pledges.build
     @pledge.user = current_user
