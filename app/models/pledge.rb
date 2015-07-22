@@ -1,5 +1,5 @@
 class Pledge < ActiveRecord::Base
   belongs_to :reward
   belongs_to :user
-  belongs_to :project
+  has_one :project, through: :reward
 end
