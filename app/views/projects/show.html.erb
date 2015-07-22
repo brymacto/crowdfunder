@@ -13,15 +13,19 @@
   Funding Goal: <%= @project.funding_goal %>
 </div>
 <div>
-  Start Date: <%= @project.start_date %>
+  Start Date: <%= @project.start_date.strftime("%b %d, %Y") %>
 </div>
 <div>
-  End Date: <%= @project.end_date %>
+  End Date: <%= @project.end_date.strftime("%b %d, %Y") %>
 </div>
 <div>
-  <strong>Total amount raised:</strong> 
+  <strong>Days left before project end date: </strong>
+  <span id="days-until-deadline"><%= @project.days_until_project_deadline %></span>
+</div>
+<div>
+  <strong>Total amount raised:</strong>
   <span id="amount_raised">
-  <%= @project.amount_raised %>  
+  <%= @project.amount_raised %>
   </span>
 </div>
 

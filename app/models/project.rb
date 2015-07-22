@@ -5,12 +5,15 @@ class Project < ActiveRecord::Base
 
   def amount_raised
     self.pledges.sum(:amount)
-    # # rewards = self.rewards.pledges
-    # # rewards.inject { |sum, x| sum + x }
-    # total_amount = 0
-    # pledges.each do |pledge|
-    #   total_amount += pledge.amount
-    # end
-    # return total_amount
   end
+
+  def days_until_project_deadline
+    days_until_deadline = (self.end_date.to_date - Date.today.to_date).to_i
+    if days_until_deadline >= 0
+      days_until_deadline
+    else
+      0
+    end
+  end
+
 end
