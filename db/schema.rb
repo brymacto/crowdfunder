@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722214928) do
+
+ActiveRecord::Schema.define(version: 20150722214247) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+ 
 
   create_table "pledges", force: :cascade do |t|
     t.integer  "amount"
@@ -33,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150722214928) do
     t.integer  "owner_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "category_id"
   end
 
   add_index "projects", ["owner_id"], name: "index_projects_on_owner_id"
