@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'projects#index', as: :tag
 
   resources :projects do
+    resources :comments, only:[:create, :update, :destroy]
     resources :rewards do
       resources :pledges
     end

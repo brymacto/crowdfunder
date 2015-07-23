@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   has_many :pledges, through: :rewards
   belongs_to :owner, class_name: User
   belongs_to :category
+  has_many :comments
   accepts_nested_attributes_for :rewards, reject_if: :all_blank, allow_destroy: true
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags

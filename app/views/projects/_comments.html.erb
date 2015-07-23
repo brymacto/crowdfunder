@@ -1,0 +1,14 @@
+<p>Comments for <%= @project.name %></p>
+  
+  <% @project.comments.each do |comment| %>
+    <% unless comment.new_record? %>
+      <p>
+        <%= comment.message %>
+        <br>
+        <% if comment.user != nil %>
+        <em> by <%= comment.user.email %></em>
+        Added on: <%= comment.created_at %>
+        <% end %>
+      </p>
+    <% end %>
+  <% end %>
