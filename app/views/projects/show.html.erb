@@ -1,7 +1,10 @@
 <h1>Project Details View</h1>
-<% if current_user.backed_projects.include? @project %>
-  You have donated to this project
+<% if current_user != nil %>
+  <% if current_user.backed_projects.include? @project %>
+    You have donated to this project
+  <% end %>  
 <% end %>
+
 <div>
   ID: <%= @project.id %>
 </div>
