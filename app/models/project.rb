@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
   belongs_to :category
   accepts_nested_attributes_for :rewards, reject_if: :all_blank, allow_destroy: true
 
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+
   def amount_raised
     self.pledges.sum(:amount)
   end

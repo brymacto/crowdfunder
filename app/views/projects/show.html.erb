@@ -1,6 +1,6 @@
 <h1>Project Details View</h1>
-<% if current_user.backed_projects.include? @project %>
-  You have donated to this project
+<% if (current_user != nil) && (current_user.backed_projects.include? @project) %>
+   You have donated to this project
 <% end %>
 <div>
   ID: <%= @project.id %>
@@ -22,6 +22,9 @@
 </div>
 <div>
   End Date: <%= @project.end_date.strftime("%b %d, %Y") %>
+</div>
+<div>
+  Tags: <%= raw @project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 </div>
 <div>
   <strong>Days left before project end date: </strong>

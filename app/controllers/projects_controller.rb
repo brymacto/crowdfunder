@@ -3,7 +3,11 @@ class ProjectsController < ApplicationController
   # load_and_authorize_resource
 
   def index
-    @projects = Project.order(end_date: :desc)
+    if params[:tag]
+      @projects = Project.tagged_with(params[:tag])
+    else
+      @projects = Project.order(end_date: :desc)
+    end
   end
   def show
     @project = Project.find(params[:id])
@@ -29,6 +33,9 @@ class ProjectsController < ApplicationController
   end
   def update
     @project = Project.find(params[:id])
+    @project.owner_id = current_user.id
+    @category = Category.find_or_create_by(name: params[:project][:category])
+    @project.category_id = @category.id
 
     if @project.update_attributes(project_params)
       redirect_to project_path(@project)
@@ -44,7 +51,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :start_date, :end_date, :funding_goal, :owner_id, rewards_attributes: [:name, :description, :amount, :backer_limit, :_destroy])
+    params.require(:project).permit(:name, :description, :start_date, :end_date, :funding_goal, :owner_id, :tag_list, rewards_attributes: [:name, :description, :amount, :backer_limit, :_destroy])
 
   end
 end

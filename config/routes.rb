@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :user_sessions
   resources :users
 
+  get 'tags/:tag', to: 'projects#index', as: :tag
 
   resources :projects do
     resources :rewards do
