@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
 
   resources :projects do
+    resources :comments, only:[:create, :update, :destroy]
     resources :rewards do
       resources :pledges
     end
