@@ -9,7 +9,7 @@
   Name: <%= @project.name %>
 </div>
 <div>
-  Category: <%= @project.category.name %>
+  Category: <%= @project.category.name if @project.category %>
 </div>
 <div>
   Description: <%= @project.description %>
