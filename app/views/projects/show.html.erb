@@ -2,6 +2,9 @@
 <% if (current_user != nil) && (current_user.backed_projects.include? @project) %>
    You have donated to this project
 <% end %>
+<div>
+  Owner: <%= @project.owner.full_name if @project.owner %>
+</div>
 
 <div>
   ID: <%= @project.id %>
