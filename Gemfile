@@ -37,6 +37,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'faker'
   gem 'best_errors'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
