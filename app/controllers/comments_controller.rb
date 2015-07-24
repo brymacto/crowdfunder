@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:message, :project_id)
+    params.require(:comment).permit(:message, :project_id, :user_id)
   end
 
   def load_project
