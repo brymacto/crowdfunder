@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
   def index
     if params[:tag]
       @projects = Project.tagged_with(params[:tag])
+    elsif params[:category]
+      @projects = Project.select do |project|
+        project.category.id.to_i == params[:category].to_i
+      end
     else
       @projects = Project.order(end_date: :desc)
     end
@@ -54,7 +58,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :start_date, :end_date, :funding_goal, :owner_id, :tag_list, rewards_attributes: [:name, :description, :amount, :backer_limit, :_destroy])
+    params.require(:project).permit(:name, :description, :start_date, :end_date, :funding_goal, :owner_id, :tag_list, :category, rewards_attributes: [:name, :description, :amount, :backer_limit, :_destroy])
 
   end
 end
