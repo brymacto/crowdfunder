@@ -44,9 +44,9 @@
 
 
 
-  <div class="row">
 
-   <div class="small-8 columns">
+
+
      <div id="flashes">
        <% if flash[:notice] %>
          <p id="notice" class="alert-box info"><%= flash[:notice] %></p>
@@ -54,13 +54,10 @@
        <% if flash[:alert] %>
          <p id="alert" class="alert-box alert"><%= flash[:alert] %></p>
        <% end %>
-     </div>
-     <%= yield %>
-   </div>
 
-   <div class="small-4 columns">
-     <p>This is the right column!</p>
-   </div>
+     <%= yield %>
+
+
 
  </div>
 

@@ -1,15 +1,24 @@
-<h1>Projects</h1>
-<% if current_user %>
-  <nav id="projects_nav">
-    <%= link_to "New Project", new_project_path %>
-  </nav>
-<% end %>
+ <div class="row">
+  <div class="small-8 columns">
+
 <% if params[:category] %>
-<h2>Category: <%= Category.find(params[:category]).name %></h2>
+<h1>Category: <%= Category.find(params[:category]).name %></h1>
 <% else %>
-<h2>Projects listing</h2>  
+<h1>Projects</h1>  
+<% end %>
+<% if current_user %>
+
 <% end %>
 
 <div id="projects">
   <%= render @projects %>
+</div>
+
+
+ </div>
+  <div class="small-4 columns sidebar">
+  <nav id="projects_nav">
+    <%= link_to "New Project", new_project_path, class: :button %>
+  </nav>
+  </div>
 </div>

@@ -1,7 +1,7 @@
 <%= content_tag_for(:article, project, class: "project") do %>
   <%= link_to project.name, "/projects/#{project.id}", class: "name" %>
-  <div class="description"><%= project.description %></div>
-  <div class="funding_goal"><%= project.funding_goal %></div>
-  <div class="dates"><%= project.start_date.strftime("%b %d, %Y") %> - <%= project.end_date.strftime("%b %d, %Y") %></div>
-  <div class="tags">Tags: <%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></div>
+  <!-- <div class="description"><%= project.description %></div> -->
+  <div class="project_details"><%= project.owner.full_name %> &middot; $<%= project.amount_raised %> raised of $<%= project.funding_goal %></div>
+  <!-- <div class="dates"><%= project.start_date.strftime("%b %d, %Y") %> - <%= project.end_date.strftime("%b %d, %Y") %></div>
+  <div class="tags">Tags: <%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></div> -->
 <% end %>

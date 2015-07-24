@@ -1,11 +1,40 @@
 $font-stack: "Open Sans", Helvetica, sans-serif;
 $primary-color: #000;
+$brand-color: #6124D9;
 
 body{
   font: 100% $font-stack;
   color: $primary-color;
+
+}
+
+a, a:visited {
+  color: $brand-color;
+}
+
+a:hover {
+  background-color: inherit;
+  text-decoration: underline;
+}
+
+a.button, a.button:visited {
+  color: #fff;
 }
 
 ul#project-rewards-list {
   list-style: none;
+}
+
+div#projects{
+  article {
+    padding-bottom: 1em;
+  }
+}
+
+.project_details {
+  font-size: 0.75rem;
+}
+
+.sidebar {
+  padding-top: 15px;
 }

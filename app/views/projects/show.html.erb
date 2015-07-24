@@ -1,3 +1,7 @@
+<div class="row">
+  <div class="small-8 columns">
+
+
 <h1>Project Details View</h1>
 <% if current_user && (current_user == @project.owner) %>
 <%= link_to "Edit this project", edit_project_path %> |
@@ -61,7 +65,12 @@
   <% end %>
 </ul>
 
-<h3>Comments</h3>
+
+
+
+  </div>
+  <div class="small-4 columns">
+    <h3>Comments</h3>
 
 <div id="comment-list">
   <%= render :partial => 'comments' %>
@@ -79,4 +88,5 @@
 <div id="comment-form-errors">
   <%= render :partial => "/projects/comment_form_errors" %>
 </div>
-
+  </div>
+</div>
