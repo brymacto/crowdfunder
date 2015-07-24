@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root :to => 'projects#index'
-
+  resources :categories, only: :index
+  get 'categories/:category', to: 'projects#index', as: :category
   resources :user_sessions
   resources :users
 
