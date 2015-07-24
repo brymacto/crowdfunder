@@ -39,7 +39,7 @@
   </div>
   <div class="field">
     <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-    <%= f.text_field :tag_list %>
+    <%= f.text_field :tag_list, value: @project.tag_list.to_s %>
   </div>
 
   <h4>Add rewards</h4>

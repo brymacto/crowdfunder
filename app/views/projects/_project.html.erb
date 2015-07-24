@@ -3,5 +3,5 @@
   <div class="description"><%= project.description %></div>
   <div class="funding_goal"><%= project.funding_goal %></div>
   <div class="dates"><%= project.start_date.strftime("%b %d, %Y") %> - <%= project.end_date.strftime("%b %d, %Y") %></div>
-  <div class="tags">Tags: <%= project.tag_list %></div>
+  <div class="tags">Tags: <%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></div>
 <% end %>
