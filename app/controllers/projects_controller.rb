@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :require_login, except: [:index, :show]
   # before_filter :require_admin, only: [:edit]
   # load_and_authorize_resource
 
