@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :require_login, except: [:index, :show]
-  # before_filter :require_admin, only: [:edit]
+  before_filter :require_owner, only: [:edit, :update]
   # load_and_authorize_resource
 
   def index
@@ -57,6 +57,12 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:name, :description, :start_date, :end_date, :funding_goal, :owner_id, :tag_list, rewards_attributes: [:name, :description, :amount, :backer_limit, :_destroy])
-
   end
+
+  def require_owner
+    if current_user != Project.find(params[:id]).owner
+      redirect_to root_path, alert: "You don't have access"
+    end
+  end
+
 end
