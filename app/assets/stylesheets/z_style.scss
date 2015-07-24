@@ -22,6 +22,10 @@ a:hover {
   text-decoration: underline;
 }
 
+nav a:hover {
+  text-decoration: none;
+}
+
 a.button, a.button:visited {
   color: #fff;
 }
