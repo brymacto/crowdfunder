@@ -20,6 +20,7 @@ a, a:visited {
 a:hover {
   background-color: inherit;
   text-decoration: underline;
+  color: $brand-color;
 }
 
 nav a:hover {
