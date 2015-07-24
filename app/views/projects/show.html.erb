@@ -10,7 +10,6 @@
 <div>
   Owner: <%= @project.owner.full_name if @project.owner %>
 </div>
-
 <div>
   ID: <%= @project.id %>
 </div>
@@ -48,7 +47,7 @@
 
 <h3>Project Rewards</h3>
 
-<ul>
+<ul id="project-reward-list">
   <% @project.rewards.each do |reward| %>
   <li><strong>Name:</strong> <%= reward.name %></li>
   <li><strong>Description:</strong> <%= reward.description %></li>
@@ -56,7 +55,7 @@
   <li><strong>Backer Limit:</strong> <%= reward.backer_limit %></li>
   <li>
    <%= form_for [@project, reward, reward.pledges.build], remote: true do |f| %>
-     <%= f.submit %>
+     <%= f.submit 'Pledge', class: "button" %>
    <% end %>
  </li>
   <% end %>

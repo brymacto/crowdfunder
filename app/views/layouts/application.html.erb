@@ -1,30 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Crowdfunder</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="nav">
-    <%= link_to "Home", projects_path %> |
-    <%= link_to "Categories", categories_path %> |
-    <%= link_to "Projects", projects_path %> |
-    <% if current_user %>
-    <%= link_to "My Account", user_path(current_user.id) %> |
-    <%= link_to "Logout", :logout, method: :post %> |
-    <% else %>
-    <%= link_to "Sign up", new_user_path %> |
-    <%= link_to "Log in", :login %>
-    <% end %>
-  </div>
-  <div>
-   <p id="notice"><%= flash[:notice] %></p>
-   <p id="alert"><%= flash[:alert] %></p>
- </div>
+  <div class="contain-to-grid sticky">
+    <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
 
- <%= yield %>
+      <ul class="title-area">
+        <li class="name">
+          <h1><%= link_to "Crowdfunder", projects_path %></h1>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+      </ul>
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <% if current_user %>
+          <li><%= link_to "My Account", user_path(current_user.id) %></li>
+          <li><%= link_to "Logout", :logout, method: :post %></li>
+          <% else %>
+          <li> <%= link_to "Sign up", new_user_path %></li>
+          <li> <%= link_to "Log in", :login %></li>
+          <% end %>
+        </ul>
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li><%= link_to "Categories", categories_path %></li>
+          <li><%= link_to "Projects", projects_path %></li>
+        </ul>
+      </section>
+    </nav>
+  </div>
+
+
+
+  <div class="row">
+
+   <div class="small-8 columns">
+     <div id="flashes">
+       <% if flash[:notice] %>
+         <p id="notice" class="alert-box info"><%= flash[:notice] %></p>
+       <% end %>
+       <% if flash[:alert] %>
+         <p id="alert" class="alert-box alert"><%= flash[:alert] %></p>
+       <% end %>
+     </div>
+     <%= yield %>
+   </div>
+
+   <div class="small-4 columns">
+     <p>This is the right column!</p>
+   </div>
+
+ </div>
 
 </body>
 </html>
+
+

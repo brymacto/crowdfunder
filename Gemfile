@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'sorcery'
 gem 'cancancan', '~> 1.10'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'foundation-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

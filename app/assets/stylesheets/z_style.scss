@@ -1,0 +1,11 @@
+$font-stack: "Open Sans", Helvetica, sans-serif;
+$primary-color: #000;
+
+body{
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+ul#project-rewards-list {
+  list-style: none;
+}
