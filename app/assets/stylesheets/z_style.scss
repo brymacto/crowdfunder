@@ -8,6 +8,11 @@ body{
 
 }
 
+li.name h1 a {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5rem;
+}
+
 a, a:visited {
   color: $brand-color;
 }
