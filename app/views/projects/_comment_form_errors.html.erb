@@ -1,4 +1,4 @@
-<% if @comment.errors.present? %>
+<% if @comment && @comment.errors.present? %>
     <% @comment.errors.full_messages.each do |error| %>
       <div class="alert">
         <%= error %>
