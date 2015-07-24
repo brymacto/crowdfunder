@@ -38,3 +38,27 @@ div#projects{
 .sidebar {
   padding-top: 15px;
 }
+
+
+div.project-details-card {
+  font-size: 0.85em;
+}
+
+
+div.project-reward {
+  dl, dt {
+    float: left;
+  }
+
+
+  dt {
+    width: 20%;
+    margin-right: 1em;
+  }
+  dt, dd {
+    margin-bottom: 0em;
+  }
+  border-bottom: 1px solid grey;
+  margin-top: 1em;
+
+}

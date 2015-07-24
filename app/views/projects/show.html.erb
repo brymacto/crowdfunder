@@ -4,10 +4,9 @@
 
 <h1>Project Details View</h1>
 <% if current_user && (current_user == @project.owner) %>
-<%= link_to "Edit this project", edit_project_path %> |
+<%= link_to "Edit this project", edit_project_path %>
 <% end %>
-<%= link_to "Back to projects list", projects_path %>
-
+<div class="panel project-details-card">
 <div id="has_backed_project">
 <%= render 'message' %>
 </div>
@@ -27,7 +26,7 @@
   Description: <%= @project.description %>
 </div>
 <div>
-  Funding Goal: <%= @project.funding_goal %>
+  Funding Goal: <%= number_to_currency(@project.funding_goal) %>
 </div>
 <div>
   Start Date: <%= @project.start_date.strftime("%b %d, %Y") %>
@@ -44,32 +43,36 @@
 </div>
 <div>
   <strong>Total amount raised:</strong>
-  <span id="amount_raised">
+  <span id="number_to_currency(amount_raised)">
   $ <%= @project.amount_raised %>
   </span>
 </div>
 
+</div>
+
 <h3>Project Rewards</h3>
 
-<ul id="project-reward-list">
+<dl id="project-reward-list">
   <% @project.rewards.each do |reward| %>
-  <li><strong>Name:</strong> <%= reward.name %></li>
-  <li><strong>Description:</strong> <%= reward.description %></li>
-  <li><strong>Amount:</strong> <%= reward.amount %></li>
-  <li><strong>Backer Limit:</strong> <%= reward.backer_limit %></li>
-  <li>
+  <div class="project-reward">
+  <dt><strong>Name:</strong></dt><dd><%= reward.name %></dd>
+  <dt><strong>Description:</strong></dt><dd><%= reward.description %></dd>
+  <dt><strong>Amount:</strong></dt><dd><%= number_to_currency(reward.amount) %></dd>
+  <dt><strong>Backer Limit:</strong></dt><dd><%= reward.backer_limit %></dd>
+  
    <%= form_for [@project, reward, reward.pledges.build], remote: true do |f| %>
-     <%= f.submit 'Pledge', class: "button" %>
+     <%= f.submit 'Pledge', class: "button small" %>
    <% end %>
- </li>
+ 
+ </div>
   <% end %>
-</ul>
+</dl>
 
 
 
 
   </div>
-  <div class="small-4 columns">
+  <div class="small-4 columns sidebar">
     <h3>Comments</h3>
 
 <div id="comment-list">
