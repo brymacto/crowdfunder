@@ -14,7 +14,7 @@
     password_confirmation: 'livefree'
     )
 
-10.times do
+40.times do
   f_name = Faker::Name.first_name
   User.create(
     first_name: f_name,
@@ -28,10 +28,6 @@ end
 10.times do 
   Category.create(name: Faker::Team.creature)  
 end
-
-# 20.times do
-#   Tag.create(name: Faker::Hacker.adjective)
-# end
 
   Project.create(
     name: "John Doe's Project #{Faker::Commerce.product_name} for #{Faker::Team.name}",
@@ -51,7 +47,7 @@ end
     start_date: Faker::Time.between(60.days.ago, Time.now, :all).to_date,
     end_date: Faker::Time.between(Time.now + 10.days, Time.now + 200.days, :all).to_date,
     owner_id: Faker::Number.between(1, 10),
-    category_id: Faker::Number.between(1, 10)
+    category_id: Faker::Number.between(1, 30)
     )
 end
 
@@ -66,11 +62,3 @@ end
       )
   end
 end
-
-# (1..100).each do |i|
-#   Tagging.create(
-#     tag_id: Faker::Number.between(1, 19)
-#     taggable_id: 
-#     )
-
-#   end
