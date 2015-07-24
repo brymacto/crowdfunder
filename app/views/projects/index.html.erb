@@ -4,8 +4,12 @@
     <%= link_to "New Project", new_project_path %>
   </nav>
 <% end %>
+<% if params[:category] %>
+<h2>Category: <%= Category.find(params[:category]).name %></h2>
+<% else %>
+<h2>Projects listing</h2>  
+<% end %>
 
-<h2>Projects listing</h2>
 <div id="projects">
   <%= render @projects %>
 </div>
