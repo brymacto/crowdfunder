@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
   #   redirect_to login_path, alert: "Please login first"
   # end
 
+  # def require_admin
+  #   if !current_user.admin?
+  #     redirect_to root_path, alert: "You don't have access"
+  #   end
+  # end
+
 end

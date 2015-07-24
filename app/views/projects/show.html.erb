@@ -1,5 +1,9 @@
 <h1>Project Details View</h1>
-<%= link_to "Edit this project", edit_project_path %> | <%= link_to "Back to projects list", projects_path %>
+<% if current_user && (current_user == @project.owner) %>
+<%= link_to "Edit this project", edit_project_path %> |
+<% end %>
+<%= link_to "Back to projects list", projects_path %>
+
 <div id="has_backed_project">
 <%= render 'message' %>
 </div>
@@ -14,7 +18,7 @@
   Name: <%= @project.name %>
 </div>
 <div>
-  Category: <%= @project.category.name if @project.category %>
+  Category: <% if @project.category %><%= link_to @project.category.name, @project.category %><% end %>
 </div>
 <div>
   Description: <%= @project.description %>
@@ -61,7 +65,7 @@
 <h3>Comments</h3>
 
 <div id="comment-list">
-  <%= render :partial => 'comments' %>  
+  <%= render :partial => 'comments' %>
 </div>
 
 <% if current_user %>
