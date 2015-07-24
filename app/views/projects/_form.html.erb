@@ -1,3 +1,5 @@
+
+
 <%= form_for(@project) do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
@@ -21,7 +23,7 @@
   </div>
   <div class="field">
     <%= f.label :category %><br />
-    <%= f.text_field :category %>
+    <%= f.select(:category_id, Category.all.collect { |c| [ c.name, c.id ] }) %>
   </div>
   <div class="field">
     <%= f.label :funding_goal %><br />
