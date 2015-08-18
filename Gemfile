@@ -38,9 +38,9 @@ gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+  gem 'faker'
 
 group :development, :test do
-  gem 'faker'
   gem 'pry'
   gem 'best_errors'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
